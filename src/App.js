@@ -60,8 +60,8 @@ function QuestionaireBox({
   </div>
 }
 
-function QuestionaireElement({ children, header = false }) {
-  return <div className={header ? "questionaire-header" : "questionaire-element"}
+function QuestionaireElement({ children, header = false, onClick = () => { } }) {
+  return <div onClick={onClick} className={header ? "questionaire-header" : "questionaire-element"}
     style={{
       borderRadius: "30px",
       border: "black 2px solid",
@@ -77,27 +77,31 @@ function QuestionaireElement({ children, header = false }) {
 function PageButton({
   children,
   right = false,
+  grey,
   onClick = () => { }
 }) {
-  return <div className="questionaire-next"
+  return <div className={grey ? "questionaire-greyed" : "questionaire-next"}
     style={{
+      opacity: grey ? "0.5" : "1",
       borderRadius: right ? "0px 30px 30px 0px" : "30px 0px 0px 30px",
       border: "black 2px solid",
-      borderRight: right ? "solid" : "none",
+      borderLeft: right ? "none" : "solid",
       boxShadow: "14px 17px 56px -6px rgba(0,0,0,0.41)",
       padding: "10px",
       color: "black",
-      zIndex: "100"
+      zIndex: "100",
     }}
-    onClick={onClick}
+    onClick={grey ? ()=>{} : onClick}
   >
     {children}
   </div>
 }
 
-function Answers({question}) {
+function Answers({ question, onClick }) {
   if (question["type"] == "radio") {
-    const answers = question["answers"].map(answer=><QuestionaireElement>{answer}</QuestionaireElement>)
+    const answers = question["answers"].map(
+      answer => <QuestionaireElement onClick={onClick}>{answer}</QuestionaireElement>
+    )
     return answers;
   }
   return <></>
@@ -130,16 +134,16 @@ function App() {
           JobSpark
         </div>
         <QuestionaireBox pageNum={pageNum + 1} numberOfPages={questions.length}>
-          <QuestionaireElement nextPage={()=>{nextPage()}} header>
+          <QuestionaireElement nextPage={nextPage} header>
             {questions[pageNum]["question"]}
           </QuestionaireElement>
-          <Answers question={questions[pageNum]}/>
+          <Answers question={questions[pageNum]} onClick={nextPage} />
         </QuestionaireBox>
         <div style={{ display: "flex", padding: "10px" }}>
           <PageButton onClick={prevPage}>
             Prev
           </PageButton>
-          <PageButton onClick={nextPage} right>
+          <PageButton onClick={nextPage} right grey>
             Next
           </PageButton>
         </div>
