@@ -1,0 +1,21 @@
+{
+    "questions": [
+        {
+            "question": "What's your age?",
+            "type": "blank",
+            "subtype": "number"
+        },
+        {
+            "question": "What's your main method of transportation?",
+            "type": "radio",
+            "answers": [
+                "Personal Car",
+                "Public Transport",
+                "Bike/Scooter",
+                "Walk",
+                "Other"
+            ]
+
+        }
+    ]
+}

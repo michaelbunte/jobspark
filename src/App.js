@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 
-import { Container, Row, Col, BootstrapProvider } from 'react-bootstrap';
+import { useState } from 'react';
+
+import questionaire from "./data/questionaire.json"
 
 function ProgressTile({ children }) {
-  return <div class="page-count" style={{
+  return <div className="page-count" style={{
     color: "black",
     fontSize: "1rem",
     borderRadius: "30px",
@@ -18,7 +19,11 @@ function ProgressTile({ children }) {
   </div>
 }
 
-function QuestionaireBox({ children }) {
+function QuestionaireBox({
+  children,
+  pageNum,
+  numberOfPages
+}) {
   return <div style={{
     width: "100%",
     display: "flex"
@@ -47,7 +52,7 @@ function QuestionaireBox({ children }) {
           right: "0",
           bottom: "0"
         }}>
-          <ProgressTile>10/14</ProgressTile>
+          <ProgressTile>{pageNum}/{numberOfPages}</ProgressTile>
         </div>
       </div>
     </div>
@@ -69,27 +74,56 @@ function QuestionaireElement({ children, header = false }) {
   </div>
 }
 
-function PageButton({ children, right = false }) {
-  return <div className="questionaire-next" style={{
-    borderRadius: right ? "0px 30px 30px 0px" : "30px 0px 0px 30px",
-    border: "black 2px solid",
-    borderRight: right ? "solid" : "none",
-    boxShadow: "14px 17px 56px -6px rgba(0,0,0,0.41)",
-    padding: "10px",
-    color: "black",
-    zIndex: "100"
-  }}>
+function PageButton({
+  children,
+  right = false,
+  onClick = () => { }
+}) {
+  return <div className="questionaire-next"
+    style={{
+      borderRadius: right ? "0px 30px 30px 0px" : "30px 0px 0px 30px",
+      border: "black 2px solid",
+      borderRight: right ? "solid" : "none",
+      boxShadow: "14px 17px 56px -6px rgba(0,0,0,0.41)",
+      padding: "10px",
+      color: "black",
+      zIndex: "100"
+    }}
+    onClick={onClick}
+  >
     {children}
   </div>
 }
 
 function App() {
+  const [pageNum, setPageNum] = useState(0);
+  const questions = questionaire.questions;
+
+  function next_page() {
+    setPageNum((prevPage) => {
+      return prevPage >= questions.length - 1 ? questions.length - 1 : prevPage + 1;
+    })
+  }
+
+  function prev_page() {
+    setPageNum((prevPage) => {
+      return prevPage <= 0 ? 0 : prevPage - 1;
+    })
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <QuestionaireBox>
+        <div style={{
+          color: "rgba(0,0,0,0.6)",
+          fontSize: "3rem",
+          marginBottom: "10px"
+        }}>
+          JobSpark
+        </div>
+        <QuestionaireBox pageNum={pageNum + 1} numberOfPages={questions.length}>
           <QuestionaireElement header>
-            What is your main method of transportation?
+            {questions[pageNum]["question"]}
           </QuestionaireElement>
           <QuestionaireElement>
             there
@@ -105,10 +139,10 @@ function App() {
           </QuestionaireElement>
         </QuestionaireBox>
         <div style={{ display: "flex", padding: "10px" }}>
-          <PageButton>
+          <PageButton onClick={prev_page}>
             Prev
           </PageButton>
-          <PageButton right>
+          <PageButton onClick={next_page} right>
             Next
           </PageButton>
         </div>
