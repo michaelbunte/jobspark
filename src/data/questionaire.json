@@ -2,8 +2,14 @@
     "questions": [
         {
             "question": "What's your age?",
-            "type": "blank",
-            "subtype": "number"
+            "type": "radio",
+            "answers": [
+                "16 - 17",
+                "18 - 24",
+                "25 - 34",
+                "35 - 49",
+                "50+"
+            ]
         },
         {
             "question": "What's your main method of transportation?",

@@ -95,17 +95,25 @@ function PageButton({
   </div>
 }
 
+function Answers({question}) {
+  if (question["type"] == "radio") {
+    const answers = question["answers"].map(answer=><QuestionaireElement>{answer}</QuestionaireElement>)
+    return answers;
+  }
+  return <></>
+}
+
 function App() {
   const [pageNum, setPageNum] = useState(0);
   const questions = questionaire.questions;
 
-  function next_page() {
+  function nextPage() {
     setPageNum((prevPage) => {
       return prevPage >= questions.length - 1 ? questions.length - 1 : prevPage + 1;
     })
   }
 
-  function prev_page() {
+  function prevPage() {
     setPageNum((prevPage) => {
       return prevPage <= 0 ? 0 : prevPage - 1;
     })
@@ -122,27 +130,16 @@ function App() {
           JobSpark
         </div>
         <QuestionaireBox pageNum={pageNum + 1} numberOfPages={questions.length}>
-          <QuestionaireElement header>
+          <QuestionaireElement nextPage={()=>{nextPage()}} header>
             {questions[pageNum]["question"]}
           </QuestionaireElement>
-          <QuestionaireElement>
-            there
-          </QuestionaireElement>
-          <QuestionaireElement>
-            there
-          </QuestionaireElement>
-          <QuestionaireElement>
-            there
-          </QuestionaireElement>
-          <QuestionaireElement>
-            there
-          </QuestionaireElement>
+          <Answers question={questions[pageNum]}/>
         </QuestionaireBox>
         <div style={{ display: "flex", padding: "10px" }}>
-          <PageButton onClick={prev_page}>
+          <PageButton onClick={prevPage}>
             Prev
           </PageButton>
-          <PageButton onClick={next_page} right>
+          <PageButton onClick={nextPage} right>
             Next
           </PageButton>
         </div>
