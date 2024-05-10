@@ -3,7 +3,7 @@ import './App.css';
 
 import { Container, Row, Col, BootstrapProvider } from 'react-bootstrap';
 
-function ProgressTile({children}) {
+function ProgressTile({ children }) {
   return <div class="page-count" style={{
     color: "black",
     fontSize: "1rem",
@@ -23,7 +23,7 @@ function QuestionaireBox({ children }) {
     width: "100%",
     display: "flex"
   }}>
-    <div style={{width: "20px"}}/>
+    <div style={{ width: "20px" }} />
     <div style={{
       width: "100%",
     }}>
@@ -51,29 +51,27 @@ function QuestionaireBox({ children }) {
         </div>
       </div>
     </div>
-    <div style={{width: "20px"}}/>
+    <div style={{ width: "20px" }} />
   </div>
 }
 
-function QuestionaireElement({ children, header=false }) {
-  return <div style={{
-    borderRadius: "30px",
-    border: "black 2px solid",
-    background: "#80C3E4",
-    boxShadow: "14px 17px 56px -6px rgba(0,0,0,0.41)",
-    padding: header ? "8px" : "3px",
-    margin: "5px",
-    width: header ? "80%" : "70%",
-    fontSize: header ? "2rem" : "1.6rem"
-  }}>
+function QuestionaireElement({ children, header = false }) {
+  return <div className={header ? "questionaire-header" : "questionaire-element"}
+    style={{
+      borderRadius: "30px",
+      border: "black 2px solid",
+      padding: header ? "8px" : "3px",
+      margin: "5px",
+      width: header ? "80%" : "70%",
+      fontSize: header ? "2rem" : "1.6rem"
+    }}>
     {children}
   </div>
 }
 
-function PageButton({children, right=false}) {
-  return <div style={{
-    backgroundColor: "#D9D9D9",
-    borderRadius: right ?  "0px 30px 30px 0px" : "30px 0px 0px 30px" ,
+function PageButton({ children, right = false }) {
+  return <div className="questionaire-next" style={{
+    borderRadius: right ? "0px 30px 30px 0px" : "30px 0px 0px 30px",
     border: "black 2px solid",
     borderRight: right ? "solid" : "none",
     boxShadow: "14px 17px 56px -6px rgba(0,0,0,0.41)",
@@ -106,7 +104,7 @@ function App() {
             there
           </QuestionaireElement>
         </QuestionaireBox>
-        <div style={{display: "flex", padding: "10px"}}>
+        <div style={{ display: "flex", padding: "10px" }}>
           <PageButton>
             Prev
           </PageButton>

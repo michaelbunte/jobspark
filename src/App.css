@@ -46,3 +46,33 @@
 .page-count {
   font-family: "Inria Sans"
 }
+
+.questionaire-next {
+  background: #D9D9D9;
+}
+
+.questionaire-next:hover {
+  background: #cccccc
+}
+
+.questionaire-next:active {
+  background: #bbbbbb
+}
+
+.questionaire-header {
+  background: #80C3E4;
+}
+
+.questionaire-element {
+  background: #80C3E4;
+  box-shadow: 14px 17px 56px -6px rgba(0,0,0,0.41);
+}
+
+.questionaire-element:hover {
+  background: #6faac7;
+}
+
+.questionaire-element:active {
+  background: #80C3E4;
+  box-shadow: 14px 17px 56px -6px rgba(0,0,0,0.41), 10px 10px 30px 0px rgba(0,0,0,0.39) inset;
+}
