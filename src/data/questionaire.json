@@ -8,7 +8,7 @@
                 "18 - 24",
                 "25 - 34",
                 "35 - 49",
-                "50+"
+                "50+ "
             ]
         },
         {
@@ -21,7 +21,33 @@
                 "Walk",
                 "Other"
             ]
-
+        },
+        {
+            "question": "What's your highest level of education?",
+            "type": "radio",
+            "answers": [
+                "Below Middle School",
+                "Middle School",
+                "Highschool Sophomore Year",
+                "Highschool",
+                "I haven't completed highschool, but I have my GED",
+                "Associates Degree",
+                "Bachelor's Degree +"
+            ]
+        }, 
+        {
+            "question": "What's your US citizenship status?",
+            "type": "radio",
+            "answers": [
+                "US Citizen",
+                "Naturalized Citizen",
+                "Lawful Permanent Resident",
+                "Conditional Permanent Resident"
+            ]
+        },
+        {
+            "question": "Thank you for filling out the questionaire!",
+            "type": "submit"
         }
     ]
 }

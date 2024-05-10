@@ -60,18 +60,26 @@ function QuestionaireBox({
   </div>
 }
 
-function QuestionaireElement({ children, header = false, onClick = () => { } }) {
-  return <div onClick={onClick} className={header ? "questionaire-header" : "questionaire-element"}
-    style={{
-      borderRadius: "30px",
-      border: "black 2px solid",
-      padding: header ? "8px" : "3px",
-      margin: "5px",
-      width: header ? "80%" : "70%",
-      fontSize: header ? "2rem" : "1.6rem"
-    }}>
-    {children}
-  </div>
+function QuestionaireElement({
+  children,
+  header = false,
+  onClick = () => { },
+  selected = false,
+  keyName
+}) {
+  return <>
+    <div onClick={() => onClick(keyName)} className={header ? "questionaire-header" : "questionaire-element"}
+      style={{
+        borderRadius: "30px",
+        border: "black 2px solid",
+        padding: header ? "8px" : "3px 12px",
+        margin: "5px",
+        width: header ? "80%" : "70%",
+        background: selected ? "#517c91" : "",
+        fontSize: header ? "2rem" : "1.6rem",
+      }}>
+      {children}
+    </div></>
 }
 
 function PageButton({
@@ -91,25 +99,42 @@ function PageButton({
       color: "black",
       zIndex: "100",
     }}
-    onClick={grey ? ()=>{} : onClick}
+    onClick={grey ? () => { } : onClick}
   >
     {children}
   </div>
 }
 
-function Answers({ question, onClick }) {
+function Answers({ question, onClick, answer }) {
   if (question["type"] == "radio") {
     const answers = question["answers"].map(
-      answer => <QuestionaireElement onClick={onClick}>{answer}</QuestionaireElement>
-    )
+      a => {
+        return <QuestionaireElement keyName={a} key={a} selected={answer == a} onClick={onClick}>{a}</QuestionaireElement>
+      }
+    );
     return answers;
+  } else if (question["type"] == "submit") {
+    return <QuestionaireElement>
+        Submit Questionaire
+      </QuestionaireElement>
   }
   return <></>
+}
+
+function generateQuestionaireState(questions) {
+  const initialState = questions.map(question => {
+    if (question["type"] == "radio") {
+      return "";
+    }
+    return "";
+  })
+  return initialState;
 }
 
 function App() {
   const [pageNum, setPageNum] = useState(0);
   const questions = questionaire.questions;
+  const [userAnswers, setUserAnswers] = useState(generateQuestionaireState(questions))
 
   function nextPage() {
     setPageNum((prevPage) => {
@@ -122,6 +147,7 @@ function App() {
       return prevPage <= 0 ? 0 : prevPage - 1;
     })
   }
+
 
   return (
     <div className="App">
@@ -137,13 +163,30 @@ function App() {
           <QuestionaireElement nextPage={nextPage} header>
             {questions[pageNum]["question"]}
           </QuestionaireElement>
-          <Answers question={questions[pageNum]} onClick={nextPage} />
+          <Answers
+            answer={userAnswers[pageNum]}
+            question={questions[pageNum]}
+            onClick={(value) => {
+              if (
+                !Boolean(userAnswers[pageNum]) && 
+                questions[pageNum]["type"] == "radio"
+              ) {
+                nextPage();
+              }
+              setUserAnswers((prev) => {
+                let new_state = [...prev]
+                if (questions[pageNum]["type"] == "radio") {
+                  new_state[pageNum] = value;
+                }
+                return new_state;
+              })
+            }} />
         </QuestionaireBox>
         <div style={{ display: "flex", padding: "10px" }}>
-          <PageButton onClick={prevPage}>
+          <PageButton onClick={prevPage} grey={Boolean(pageNum <= 0)}>
             Prev
           </PageButton>
-          <PageButton onClick={nextPage} right grey>
+          <PageButton onClick={nextPage} right grey={pageNum >= questions.length - 1 || !Boolean(userAnswers[pageNum])}>
             Next
           </PageButton>
         </div>
