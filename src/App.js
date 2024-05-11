@@ -15,7 +15,7 @@ function ProgressTile({ children }) {
     padding: "5px",
     margin: "10px"
   }}>
-    {children}
+    {children} 
   </div>
 }
 
