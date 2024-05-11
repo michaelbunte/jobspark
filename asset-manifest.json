@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/jobspark/static/css/main.ca854868.css",
+    "main.js": "/jobspark/static/js/main.34de02f7.js",
+    "static/js/453.7068137c.chunk.js": "/jobspark/static/js/453.7068137c.chunk.js",
+    "static/media/pastel2.jpg": "/jobspark/static/media/pastel2.cc4f9ceac21a7eaf1569.jpg",
+    "static/media/pastel4.jpg": "/jobspark/static/media/pastel4.61c32f951ec934e15635.jpg",
+    "index.html": "/jobspark/index.html",
+    "main.ca854868.css.map": "/jobspark/static/css/main.ca854868.css.map",
+    "main.34de02f7.js.map": "/jobspark/static/js/main.34de02f7.js.map",
+    "453.7068137c.chunk.js.map": "/jobspark/static/js/453.7068137c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca854868.css",
+    "static/js/main.34de02f7.js"
+  ]
+}
