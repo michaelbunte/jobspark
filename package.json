@@ -1,6 +1,7 @@
 {
   "name": "jobspark",
   "version": "0.1.0",
+  "homepage": "https://michaelbunte.github.io/jobspark",
   "private": true,
   "homepage": "http://michaelbunte.github.io/jobspark",
   "dependencies": {

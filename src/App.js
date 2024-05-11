@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return <BrowserRouter>
-    <Routes>
+    <Routes> 
       <Route path="/">
         <Route path="questionaire" element={<EntryQuiz/>} />
         <Route index element={<Homepage/>}/>
