@@ -3,7 +3,7 @@ import Homepage from "./Pages/Homepage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  return <BrowserRouter>
+  return <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Routes> 
       <Route path="/">
         <Route path="questionaire" element={<EntryQuiz/>} />
