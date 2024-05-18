@@ -1,6 +1,9 @@
 import './EntryQuiz.css';
 
 import { useState } from 'react';
+import { ReactComponent as LoadingSvg } from '../svgs/loadinggears.svg';
+import { useNavigate } from "react-router-dom";
+
 
 import questionaire from "./../data/questionaire.json"
 
@@ -114,9 +117,9 @@ function Answers({ question, onClick, answer }) {
     );
     return answers;
   } else if (question["type"] == "submit") {
-    return <QuestionaireElement>
-        Submit Questionaire
-      </QuestionaireElement>
+    return <QuestionaireElement onClick={onClick}>
+      Submit Questionaire
+    </QuestionaireElement>
   }
   return <></>
 }
@@ -134,7 +137,10 @@ function generateQuestionaireState(questions) {
 function EntryQuiz() {
   const [pageNum, setPageNum] = useState(0);
   const questions = questionaire.questions;
-  const [userAnswers, setUserAnswers] = useState(generateQuestionaireState(questions))
+  const [userAnswers, setUserAnswers] = useState(generateQuestionaireState(questions));
+  const [hasFormBeenSubmitted, setHasFormBeenSubmitted] = useState(false);
+  
+  const navigate = useNavigate();
 
   function nextPage() {
     setPageNum((prevPage) => {
@@ -166,12 +172,21 @@ function EntryQuiz() {
           <Answers
             answer={userAnswers[pageNum]}
             question={questions[pageNum]}
-            onClick={(value) => {
+            onClick={async (value) => {
               if (
-                !Boolean(userAnswers[pageNum]) && 
+                !Boolean(userAnswers[pageNum]) &&
                 questions[pageNum]["type"] == "radio"
               ) {
                 nextPage();
+              } else if (
+                questions[pageNum]["type"] == "submit"
+              ) {
+                console.log("submit")
+                setHasFormBeenSubmitted(true);
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                setHasFormBeenSubmitted(false);
+                navigate("/");
+
               }
               setUserAnswers((prev) => {
                 let new_state = [...prev]
@@ -191,6 +206,36 @@ function EntryQuiz() {
           </PageButton>
         </div>
       </header>
+
+      {hasFormBeenSubmitted && <div style={{
+        background: "rgba(10,10,10,0.5)",
+        width: "100%",
+        height: "100%",
+        position: "fixed",
+        top: "0px",
+        left: "0px",
+        zIndex: "200",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        backdropFilter: "blur(10px)"
+      }}>
+        <div
+          style={{
+            fontSize: "3rem",
+            color: "white",
+            padding: "40px"
+          }}
+        >
+          Finding Relevant Jobs
+        </div>
+        <LoadingSvg style={{
+          width: '40px', // Adjust the size as needed
+          height: '40px',
+          fill: "white"
+        }} />
+      </div>}
     </div >
 
   );
