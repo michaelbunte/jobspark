@@ -24,7 +24,9 @@ function Resources() {
     return (
         <div className="page">
             <div className="upper-background">
-                <img src="/jobspark/jobspark logo.png" alt="Logo" className="logo"/>
+                <Link to="/">
+                    <img src="/jobspark/jobspark logo.png" alt="Logo" className="logo"/>
+                </Link>
                 <button className="login-button">Login</button>
                 <div style={{ marginTop: "110px" }}>
                     <div style={{ fontSize: "4rem", color: "black" }}>
