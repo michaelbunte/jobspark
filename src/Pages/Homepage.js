@@ -51,12 +51,22 @@ function Homepage() {
             Login
         </div>
 
-        <div style={{...other_button, ...{
+
+        <div style={{
             position: "absolute",
             bottom: "0",
-            marginBottom: "20px"
-        }}}> 
-            Español
+            marginBottom: "20px",
+            display: "flex",
+            gap: "10px"
+        }}>
+            <div style={other_button}>
+                Español
+            </div>
+            <Link to="/about" style={{ textDecoration: "none", color: "inherit" }}>
+                <div style={other_button}>
+                    About Us
+                </div>
+            </Link>
         </div>
     </div>
 }

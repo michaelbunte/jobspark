@@ -1,6 +1,7 @@
 import './PotentialMatches.css'
 
 import joblist from "../data/joblist.json";
+import "./Base.css";
 
 function JobTile({
     position="",
@@ -10,11 +11,11 @@ function JobTile({
 }) {
 
     const color_map = {
-        "green" : "#39EEAAF",
+        "green" : "#9EEAAF",
         "yellow" : "#FFFDCA"
     }
     return (
-        <div style={{
+        <div className="hovergrow" style={{
             background: color_map[color],
             padding: "10px 20px",
             margin: "10px  20px",
