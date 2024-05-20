@@ -1,17 +1,24 @@
 {
   "files": {
-    "main.css": "/jobspark/static/css/main.ca854868.css",
-    "main.js": "/jobspark/static/js/main.f02233e4.js",
+    "main.css": "/jobspark/static/css/main.d1870c32.css",
+    "main.js": "/jobspark/static/js/main.c5d77413.js",
     "static/js/453.7068137c.chunk.js": "/jobspark/static/js/453.7068137c.chunk.js",
     "static/media/pastel2.jpg": "/jobspark/static/media/pastel2.cc4f9ceac21a7eaf1569.jpg",
+    "static/media/pastel6.jpg": "/jobspark/static/media/pastel6.c6ff48e54cc81c6469df.jpg",
     "static/media/pastel4.jpg": "/jobspark/static/media/pastel4.61c32f951ec934e15635.jpg",
+    "static/media/homeboy.png": "/jobspark/static/media/homeboy.f942624db709f2606cf0.png",
+    "static/media/transcanwork.png": "/jobspark/static/media/transcanwork.05c5dc24862b17d24d61.png",
+    "static/media/govjobs.png": "/jobspark/static/media/govjobs.9fe8c77f9c3a146e5e8a.png",
+    "static/media/jvs.png": "/jobspark/static/media/jvs.14df864c50ced8583ce4.png",
+    "static/media/chrys.png": "/jobspark/static/media/chrys.9835f281ee95c67d704f.png",
     "index.html": "/jobspark/index.html",
-    "main.ca854868.css.map": "/jobspark/static/css/main.ca854868.css.map",
-    "main.f02233e4.js.map": "/jobspark/static/js/main.f02233e4.js.map",
+    "static/media/loadinggears.svg": "/jobspark/static/media/loadinggears.0ef0ecaa6bb10a0d59165ca9097bf679.svg",
+    "main.d1870c32.css.map": "/jobspark/static/css/main.d1870c32.css.map",
+    "main.c5d77413.js.map": "/jobspark/static/js/main.c5d77413.js.map",
     "453.7068137c.chunk.js.map": "/jobspark/static/js/453.7068137c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca854868.css",
-    "static/js/main.f02233e4.js"
+    "static/css/main.d1870c32.css",
+    "static/js/main.c5d77413.js"
   ]
 }
