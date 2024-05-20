@@ -1,0 +1,28 @@
+{
+    "joblist" : [
+        {
+            "position" : "Front Desk Attendant",
+            "availability" : "12",
+            "hours_required" : "4",
+            "color": "green"
+        },
+        {
+            "position" : "Customer Service Representative",
+            "availability" : "14",
+            "hours_required" : "20",
+            "color": "green"
+        },
+        {
+            "position" : "Kitchen Assistant",
+            "availability" : "4",
+            "hours_required" : "40",
+            "color": "yellow"
+        },
+        {
+            "position" : "Real Estate Agent",
+            "availability" : "60",
+            "hours_required" : "150",
+            "color" : "yellow"
+        }
+    ]
+}

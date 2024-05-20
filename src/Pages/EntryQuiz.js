@@ -1,4 +1,5 @@
 import './EntryQuiz.css';
+import './Base.css'
 
 import { useState } from 'react';
 import { ReactComponent as LoadingSvg } from '../svgs/loadinggears.svg';
@@ -184,9 +185,7 @@ function EntryQuiz() {
                 console.log("submit")
                 setHasFormBeenSubmitted(true);
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                setHasFormBeenSubmitted(false);
-                navigate("/");
-
+                navigate("/potentialmatches");
               }
               setUserAnswers((prev) => {
                 let new_state = [...prev]
