@@ -185,7 +185,7 @@ function EntryQuiz() {
                 console.log("submit")
                 setHasFormBeenSubmitted(true);
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                navigate("/potentialmatches");
+                navigate("/dashboard");
               }
               setUserAnswers((prev) => {
                 let new_state = [...prev]

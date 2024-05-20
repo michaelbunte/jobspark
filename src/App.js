@@ -3,6 +3,7 @@ import Homepage from "./Pages/Homepage";
 import PotentialMatches from "./Pages/PotentialMatches";
 import About from "./Pages/About";
 import EmploymentResources from "./Pages/EmploymentResources";
+import Dashboard from "./Pages/Dashboard";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="potentialmatches" element={<PotentialMatches />} />
         <Route path="about" element={<About />} />
         <Route path="employmentresources" element={<EmploymentResources />} />
+        <Route path="dashboard" element={<Dashboard />} />
       </Route>
     </Routes>
   </BrowserRouter>
