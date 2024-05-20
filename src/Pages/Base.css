@@ -16,6 +16,20 @@
     font-family: "Inria Serif";
 }
 
+.basicpage {
+    background-color: #282c34;
+    background-image: url("../../public/imgs/pastel4.jpg");
+    background-size: 100% 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    font-family: "Inria Serif";
+}
+
 
 .hovergrow {
     transition: all .01s ease-in-out; 
