@@ -12,13 +12,13 @@ function Resources() {
     };*/ // figure out later
 
     const resources = [
-        { id: 1, image: 'chrysalis logo.jpg', title: 'Chrysalis', subtitle: "Job-readiness program, individualized case management, and more!", url: 'https://www.changelives.org/'},
-        { id: 2, image: 'jvs logo.jpg', title: 'JVS SoCal', subtitle: "No-Cost Career Training Mentoring for Women", url: 'https://jvs-socal.org/' },
-        { id: 3, image: 'government jobs logo.png', title: 'Government Jobs', subtitle: 'Job Opportunities within Los Angeles County', url: 'https://google.com' }, //add link
-        { id: 4, image: 'goodwill logo.png', title: 'Goodwill', subtitle: 'Occupational Skill training, Career Centers, and more!', url: 'https://www.goodwill.org/training-and-work-opportunities-for-goodwill-programs/' },
-        { id: 5, image: 'spy logo.png', title: 'SPY', subtitle: 'Providing youth job readiness tools, internship programs, and more!', url: 'https://www.safeplaceforyouth.org/education_and_employment' },
-        { id: 6, image: 'transcanwork logo.png', title: 'TransCanWork', subtitle: 'Transgender Employment Programs' , url: 'https://transcanwork.org/job-seeker-services'},
-        { id: 7, image: 'homeboy logo.png', title: 'Homeboy Industries', subtitle: 'Workforce develpoment for former gang-involved men and women' , url: 'https://homeboyindustries.org/'}
+        { id: 1, image: '/jobspark/chrysalis logo.jpg', title: 'Chrysalis', subtitle: "Job-readiness program, individualized case management, and more!", url: 'https://www.changelives.org/'},
+        { id: 2, image: '/jobspark/jvs logo.jpg', title: 'JVS SoCal', subtitle: "No-Cost Career Training Mentoring for Women", url: 'https://jvs-socal.org/' },
+        { id: 3, image: '/jobspark/government jobs logo.png', title: 'Government Jobs', subtitle: 'Job Opportunities within Los Angeles County', url: 'https://google.com' }, //add link
+        { id: 4, image: '/jobspark/goodwill logo.png', title: 'Goodwill', subtitle: 'Occupational Skill training, Career Centers, and more!', url: 'https://www.goodwill.org/training-and-work-opportunities-for-goodwill-programs/' },
+        { id: 5, image: '/jobspark/spy logo.png', title: 'SPY', subtitle: 'Providing youth job readiness tools, internship programs, and more!', url: 'https://www.safeplaceforyouth.org/education_and_employment' },
+        { id: 6, image: '/jobspark/transcanwork logo.png', title: 'TransCanWork', subtitle: 'Transgender Employment Programs' , url: 'https://transcanwork.org/job-seeker-services'},
+        { id: 7, image: '/jobspark/homeboy logo.png', title: 'Homeboy Industries', subtitle: 'Workforce develpoment for former gang-involved men and women' , url: 'https://homeboyindustries.org/'}
     ];
 
     return (
